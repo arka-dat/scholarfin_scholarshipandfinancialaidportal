@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scholarships</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Available Scholarships</h1>
+  </header>
+  <main>
+    <section>
+      <table border="1" style="width: 100%; text-align: center;">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Deadline</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% scholarships.forEach(scholarship => { %>
+            <tr>
+              <td><%= scholarship.name %></td>
+              <td><%= scholarship.amount %></td>
+              <td><%= scholarship.deadline %></td>
+              <td><a href="/apply/<%= scholarship.id %>">Apply</a></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

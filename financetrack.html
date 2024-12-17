@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Finance Tracker</title>
+    <button class="btn-red" onclick="location.href='index.html'">Home</button>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 700px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #5c67f2;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #4a54e1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        table th {
+            background-color: #5c67f2;
+            color: #fff;
+        }
+        #totalAmount {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            text-align: right;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scholarship Finance Tracker</h1>
+        <form id="scholarshipForm">
+            <input type="text" id="scholarshipName" placeholder="Scholarship Name" required>
+            <input type="number" id="amount" placeholder="Amount Received" required>
+            <button type="button" onclick="addScholarship()">Add Scholarship</button>
+        </form>
+        
+        <table id="scholarshipTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Scholarship Name</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Scholarships will appear here -->
+            </tbody>
+        </table>
+        
+        <div id="totalAmount">Total Amount: Rs.0</div>
+    </div>
+
+    <script>
+        let totalAmount = 0;
+        let scholarshipCount = 0;
+
+        function addScholarship() {
+            // Get input values
+            const nameInput = document.getElementById('scholarshipName');
+            const amountInput = document.getElementById('amount');
+            const name = nameInput.value.trim();
+            const amount = parseFloat(amountInput.value);
+
+            // Validate inputs
+            if (!name || isNaN(amount) || amount <= 0) {
+                alert('Please enter a valid scholarship name and amount.');
+                return;
+            }
+
+            // Increment counters
+            scholarshipCount++;
+            totalAmount += amount;
+
+            // Add scholarship to the table
+            const tableBody = document.querySelector('#scholarshipTable tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${scholarshipCount}</td>
+                <td>${name}</td>
+                <td>$${amount.toFixed(2)}</td>
+            `;
+            tableBody.appendChild(newRow);
+
+            // Update total amount
+            document.getElementById('totalAmount').innerText = `Total Amount: $${totalAmount.toFixed(2)}`;
+
+            // Clear inputs
+            nameInput.value = '';
+            amountInput.value = '';
+        }
+    </script>
+</body>
+</html>

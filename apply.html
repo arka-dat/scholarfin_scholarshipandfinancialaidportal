@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Application Form</title>
+    <button class="btn-red" onclick="location.href='index.html'">Home</button>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group.inline {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-group.inline label {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .form-group.inline input {
+            flex: 2;
+        }
+    </style>
+</head>
+<body>
+    <form action="/submit_scholarship_form" method="POST">
+        <h1>Scholarship Application Form</h1>
+
+        <!-- Personal Information -->
+        <div class="form-group">
+            <label for="full_name">Full Name</label>
+            <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="form-group inline">
+            <div>
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div>
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Permanent Address</label>
+            <textarea id="address" name="address" rows="3" placeholder="Enter your permanent address" required></textarea>
+        </div>
+
+        <!-- Academic Information -->
+        <div class="form-group">
+            <label for="school_name">High School/College Name</label>
+            <input type="text" id="school_name" name="school_name" placeholder="Enter your school/college name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="gpa">Current GPA/Percentage</label>
+            <input type="text" id="gpa" name="gpa" placeholder="Enter your GPA or percentage" required>
+        </div>
+
+        <!-- Achievements -->
+        <div class="form-group">
+            <label for="achievements">Achievements and Extracurricular Activities</label>
+            <textarea id="achievements" name="achievements" rows="4" placeholder="List your achievements and extracurricular activities"></textarea>
+        </div>
+
+        <!-- Essay Submission -->
+        <div class="form-group">
+            <label for="essay">Essay (500 words max)</label>
+            <textarea id="essay" name="essay" rows="6" placeholder="Write your scholarship essay here" required></textarea>
+        </div>
+
+        <!-- Supporting Documents -->
+        <div class="form-group">
+            <label for="documents">Upload Supporting Documents</label>
+            <input type="file" id="documents" name="documents[]" accept=".pdf,.doc,.docx,.jpg,.png" multiple required>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit">Submit Application</button>
+        </div>
+    </form>
+</body>
+</html>

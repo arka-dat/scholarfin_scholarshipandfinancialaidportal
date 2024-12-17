@@ -1,0 +1,15 @@
+{
+    "name": "scholarship-website",
+    "version": "1.0.0",
+    "description": "A simple website using Node.js and Express.js.",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.18.4"
+    },
+    "author": "Hrishik Nandy",
+    "license": "MIT"
+  }
+  
